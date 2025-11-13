@@ -1,230 +1,401 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>关于我 | Admsec 的博客</title><meta name="author" content="Admsec"><meta name="copyright" content="Admsec"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一名热爱编程的大学生，理想是成为一名程序员大牛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="https://blog.admsec223.cn/about/index.html">
-<meta property="og:site_name" content="Admsec 的博客">
-<meta property="og:description" content="一名热爱编程的大学生，理想是成为一名程序员大牛">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.admsec223.cn/imgs/avatar_default.jpg">
-<meta property="article:published_time" content="2025-07-13T05:23:39.000Z">
-<meta property="article:modified_time" content="2025-07-13T05:24:03.128Z">
-<meta property="article:author" content="Admsec">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.admsec223.cn/imgs/avatar_default.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/imgs/favicon.ico"><link rel="canonical" href="https://blog.admsec223.cn/about/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
-    (() => {
-      
-    const saveToLocal = {
-      set: (key, value, ttl) => {
-        if (!ttl) return
-        const expiry = Date.now() + ttl * 86400000
-        localStorage.setItem(key, JSON.stringify({ value, expiry }))
-      },
-      get: key => {
-        const itemStr = localStorage.getItem(key)
-        if (!itemStr) return undefined
-        const { value, expiry } = JSON.parse(itemStr)
-        if (Date.now() > expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return value
-      }
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admsec 的个人简介</title>
+  <link rel="icon" href="/imgs/favicon.ico">
+  <style>
+        * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    /* 亮色主题 */
+    :root {
+      /* 主要背景色 */
+      --bg-primary: #ffffff;
+      /* 卡片颜色 */
+      --bg-secondary: #f5f5f5;
+      /* 字体颜色 */
+      --text-primary: #1a1a1a;
+      /*  */
+      --mode-btn-bg: #fff;
+      --text-secondary: #666666;
+      --border-color: #e0e0e0;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --stack-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      /* 交互状态 */
+      --hover-bg: #d5d5d570;
+      --active-bg: #e6e6e6;
+      /* 过渡效果 */
+      --transition-speed: 0.8s
     }
 
-    window.btf = {
-      saveToLocal,
-      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
-        script.onload = script.onreadystatechange = () => {
-          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
-        }
-        script.onerror = reject
-        document.head.appendChild(script)
-      }),
-      getCSS: (url, id) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onload = link.onreadystatechange = () => {
-          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
-        }
-        link.onerror = reject
-        document.head.appendChild(link)
-      }),
-      addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!true && key.startsWith('pjax')) return
-        const globalFn = parent.globalFn || {}
-        globalFn[key] = globalFn[key] || {}
-        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
-        parent.globalFn = globalFn
-      }
+    /* 深色主题变量覆盖 */
+    [data-theme="dark"] {
+      --bg-primary: #121212;
+      --bg-secondary: #1e1e1e;
+      --text-primary: #e0e0e0;
+      --text-secondary: #a0a0a0;
+      --border-color: #333333;
+      --shadow-color: rgba(0, 0, 0, 0.3);
+      --mode-btn-bg: #888888;
+      --hover-bg: #2a2a2a;
+      --active-bg: #353535;
     }
-  
-      
-      const activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      const activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
 
-      btf.activateDarkMode = activateDarkMode
-      btf.activateLightMode = activateLightMode
+    body {
+      color: var(--text-primary);
+      background: var(--bg-primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+      /* 隐藏插入光标 */
+      Caret-color: transparent;
 
-      const theme = saveToLocal.get('theme')
+    }
+
+    .container {
+      border: 1px solid;
+      width: 800px;
+      height: 450px;
+      border-radius: 1%;
+      background: var(--bg-secondary);
+      position: relative;
+      /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+      box-shadow: var(--shadow-color);
+    }
+
+    .left,
+    .right {
+      float: left;
+    }
+
+    .left {
+      width: 350px;
+      height: 100%;
+    }
+
+    .right {
+      width: 448px;
+      height: 100%;
+    }
+    .avatar-box{
+      width: 100%;
+      height: 70%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 220px;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+    }
+    .avatar:hover{
+      cursor: pointer;
+    }
     
-          const hour = new Date().getHours()
-          const isNight = hour <= 6 || hour >= 18
-          if (theme === undefined) isNight ? activateDarkMode() : activateLightMode()
-          else theme === 'light' ? activateLightMode() : activateDarkMode()
-        
+
+    .social-icons {
+      text-align: center;
+    }
+
+    .social-icons img {
+      width: 30px;
+      margin-left: 10px;
+    }
+
+    .info {
+      margin-top: 50px;
+    }
+
+    .info .basic {
+      margin: 15px 0;
+    }
+
+    .stack-box {
+      width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: var(--bg-secondary);
+      border-radius: 8px;
+      /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+      box-shadow: var(--stack-shadow);
+    }
+
+    .stack {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      height: 35px;
+    }
+
+    .stack:last-child {
+      margin-bottom: 0;
+    }
+
+    .stack-label {
+      width: 80px;
+      font-weight: bold;
+    }
+
+    .p-container {
+      height: 25px;
+      width: 250px;
+      border-radius: 25px 0 0 25px;
+      border: 1px solid #ddd;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0;
+      border-radius: 25px 0 0 25px;
+      text-align: center;
+      line-height: 25px;
+      font-style: italic;
+      /* 加入过渡动画 */
+      transition: width 2s;
+    }
+
+    #rust-progress {
+      background: linear-gradient(135deg, #FDDB92 0%, #D1FDFF 100%);
+    }
+
+    #node-progress {
+      background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+    }
+
+    #java-progress {
+      background: linear-gradient(135deg, #ff9a56 0%, #ff6961 100%);
+    }
+
+    .type-writer-box {
+      margin-top: 10px;
+      width: 100%;
+      height: 25px;
+    }
+
+    .type-writer {
+      width: 70%;
+      height: 25px;
+      margin: 0 auto;
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+    .p-dispaly {
+      margin-left: 1rem;
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+    .pettern-box{
+      width: 35px;
+      height: 35px;
+      position: absolute;
+      right: 20px;
+      top: 20px;
       
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+    }
+    .pettern{
+      width: inherit;
+      height: inherit;
+      background-color: var(--mode-btn-bg);
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      border-radius: 5px;
+      transition: background-color 1s;
+    }
+    .pettern img{
+      width: 100%;
+    }
+    .pettern:hover{
+      cursor: pointer;
+      background-color: var(--hover-bg);
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      transition: background-color 1s;
+    }
+
+    /* 鼠标放在头像上，头像旋转360度 */
+    @keyframes rotate{
+      from {
+        transform: rotate(0deg);
       }
-    
-      
-    const detectApple = () => {
-      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
-        document.documentElement.classList.add('apple')
+      to {
+        transform: rotate(360deg);
       }
     }
-    detectApple()
-  
-    })()
-  </script><script>var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?00826d6179e07a65bc9c0c7de28fb88a";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-btf.addGlobalFn('pjaxComplete', () => {
-  _hmt.push(['_trackPageview',window.location.pathname])
-}, 'baidu_analytics')
-</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-02PL0XB8BX"></script><script>window.dataLayer = window.dataLayer || []
-function gtag(){dataLayer.push(arguments)}
-gtag('js', new Date())
-gtag('config', 'G-02PL0XB8BX')
-btf.addGlobalFn('pjaxComplete', () => {
-  gtag('config', 'G-02PL0XB8BX', {'page_path': window.location.pathname})
-}, 'google_analytics')
-</script><script>(function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "u0d3hk3g9k");
-</script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
-  copy: {
-    success: '复制成功',
-    error: '复制失败',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '天',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: true,
-  islazyloadPlugin: false,
-  isAnchor: true,
-  percent: {
-    toc: true,
-    rightside: true,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '关于我',
-  isHighlightShrink: false,
-  isToc: false,
-  pageType: 'page'
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/imgs/avatar_default.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-home"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fa-solid fa-comments"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="page type-about" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Admsec 的博客</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-home"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fa-solid fa-comments"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">关于我</h1></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="page-title">关于我</div><div class="container" id="article-container"></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-flex"><div class="footer-flex-items"><div class="footer-flex-item"><div class="footer-flex-title">框架</div><div class="footer-flex-content"><a href="https://hexo.io/zh-cn/" target="_blank" title="⚡️ Hexo">⚡️ Hexo</a><a href="https://butterfly.js.org/" target="_blank" title="🚀 Butterfly">🚀 Butterfly</a></div></div></div></div><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Admsec</span><span class="framework-info"><span class="footer-separator">|</span><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030002008448"><img class="icp-icon" src="/imgs/gab.png"><span>粤公网安备44030002008448号</span> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn"><span>粤ICP备2025489280号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><script src="/js/tw_cn.js?v=5.5.1"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
-POWERMODE.shake = false;
-POWERMODE.mobile = false;
-document.body.addEventListener('input', POWERMODE);
-</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
-  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-  window.pjax = new Pjax({
-    elements: 'a:not([target="_blank"])',
-    selectors: pjaxSelectors,
-    cacheBust: false,
-    analytics: true,
-    scrollRestoration: false
-  })
-
-  const triggerPjaxFn = (val) => {
-    if (!val) return
-    Object.values(val).forEach(fn => {
-      try {
-        fn()
-      } catch (err) {
-        console.debug('Pjax callback failed:', err)
+    /* 反向旋转 */
+    @keyframes reverse-rotate{
+      from {
+        transform: rotate(0deg);
       }
-    })
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+    .active {
+      animation-name: rotate; /* 应用动画名称 */
+      animation-duration: .5s; /* 动画持续时间 */
+      animation-iteration-count: 1; /* 只执行一次 */
+      animation-timing-function: linear; /* 动画速度曲线 */
+    }
+
+    .reverse-active {
+      animation-name: reverse-rotate; /* 应用动画名称 */
+      animation-duration: .5s; /* 动画持续时间 */
+      animation-iteration-count: 1; /* 只执行一次 */
+      animation-timing-function: linear; /* 动画速度曲线 */
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="pettern-box">
+      <div class="pettern" id="pettern" onclick="changeTheme()"><img src="/svg/adjust.svg" alt="" srcset=""></div>
+    </div>
+    <div class="left">
+      <div class="avatar-box">
+        <img src="/imgs/avatar_default.jpg" alt="" class="avatar" id="avatar">
+      </div>
+      <div class="social-icons">
+        <a href="https://github.com/Admsec" target="_blank"><img src="/svg/github.svg" alt=""></a>
+        <a href="https://space.bilibili.com/1341777011" target="_blank"><img src="/svg/bilibili.svg" alt=""></a>
+        <a href="https://blog.admsec223.cn" target="_blank"><img src="/svg/blog.svg" alt=""></a>
+      </div>
+      <div class="type-writer-box">
+        <div class="type-writer" id="writer"></div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="info">
+        <p class="basic">姓名: Admsec</p>
+        <p class="basic">学校: 深圳职业技术大学</p>
+        <p class="basic">兴趣爱好: 写代码, 打游戏</p>
+        <p class="basic">对自己的评价: 追梦者, 梦想是成为一名计算机大牛！</p>
+        <p class="basic">技术栈: </p>
+        <div class="stack-box">
+          <div class="stack">
+            <span class="stack-label">Rust:</span>
+            <div class="p-container">
+              <div class="progress" id="rust-progress"></div>
+            </div>
+            <div class="p-dispaly" id="rust-display">90%</div>
+
+          </div>
+          <div class="stack">
+            <span class="stack-label">Node.js:</span>
+            <div class="p-container">
+              <div class="progress" id="node-progress"></div>
+            </div>
+            <div class="p-dispaly" id="node-display">85%</div>
+
+          </div>
+          <div class="stack">
+            <span class="stack-label">Java:</span>
+            <div class="p-container">
+              <div class="progress" id="java-progress"></div>
+            </div>
+            <div class="p-dispaly" id="java-display">70%</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+
+  const sentences = [
+    "学而不思则罔，思而不学则殆",
+    "云破星出之夜，我对星呢喃：吞噬我",
+    "相见争如不见，多情何似无情"
+  ];
+
+  const typeSpeed = 100;
+  const eraseSpeed = 50;
+  const pauseBetween = 1500;
+
+  let writerElement = document.getElementById("writer");
+  let sentenceIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeWriter() {
+    const currentSentence = sentences[sentenceIndex];
+    if (!isDeleting) {
+      // 打字模式
+      writerElement.textContent = currentSentence.substring(0, charIndex + 1);
+      charIndex++;
+
+      if (charIndex === currentSentence.length) {
+        // 完整打完一句话后暂停，然后开始删除
+        isDeleting = true;
+        setTimeout(typeWriter, pauseBetween);
+        return;
+      }
+    } else {
+      writerElement.textContent = currentSentence.substring(0, charIndex - 1);
+      charIndex--;
+
+      if (charIndex === 0) {
+        // 完全删除后切换到下一句话
+        isDeleting = false;
+        sentenceIndex = (sentenceIndex + 1) % sentences.length;
+      }
+    }
+
+    // 设置下一次调用的延迟
+    const speed = isDeleting ? eraseSpeed : typeSpeed;
+    setTimeout(typeWriter, speed);
+  }
+    // 初始化打字机效果
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typeWriter, 1000);
+    // 技术栈进度条加载效果
+    setTimeout(() => {
+      document.getElementById("rust-progress").style.width = '90%';
+      document.getElementById("node-progress").style.width = '85%';
+      document.getElementById("java-progress").style.width = '70%';
+    }, 100)
+  });
+
+  // 白天/黑夜模式
+  function changeTheme(){
+    let theme = document.body.dataset.theme;
+    if(theme){
+      document.body.dataset.theme = '';
+    } else {
+      document.body.dataset.theme = 'dark';
+    }
+    
   }
 
-  document.addEventListener('pjax:send', () => {
-    // removeEventListener
-    btf.removeGlobalFnEvent('pjaxSendOnce')
-    btf.removeGlobalFnEvent('themeChange')
-
-    // reset readmode
-    const $bodyClassList = document.body.classList
-    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
-
-    triggerPjaxFn(window.globalFn.pjaxSend)
+  // 头像转动效果
+  const avatar = document.getElementById("avatar");
+  avatar.addEventListener("mouseenter", () => {
+    avatar.classList.add("active")
+    setTimeout(() => {
+      avatar.classList.remove("active")
+    }, 500);
   })
 
-  document.addEventListener('pjax:complete', () => {
-    btf.removeGlobalFnEvent('pjaxCompleteOnce')
-    document.querySelectorAll('script[data-pjax]').forEach(item => {
-      const newScript = document.createElement('script')
-      const content = item.text || item.textContent || item.innerHTML || ""
-      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-      newScript.appendChild(document.createTextNode(content))
-      item.parentNode.replaceChild(newScript, item)
-    })
-
-    triggerPjaxFn(window.globalFn.pjaxComplete)
+  avatar.addEventListener("mouseleave", () => {
+    avatar.classList.add('reverse-active')
+    setTimeout(() => {
+      avatar.classList.remove("reverse-active")
+    }, 500);
   })
+</script>
+<!-- <script src="static/js/typeWriter.js"></script> -->
 
-  document.addEventListener('pjax:error', e => {
-    if (e.request.status === 404) {
-      const usePjax = true
-      true
-        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
-        : window.location.href = e.request.responseURL
-    }
-  })
-})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.1"></script></div></div></body></html>
+</html>
